@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+
+    <div id="justified-collection">
+      <% @album.photos.each do |photo| %>
+        <a href="<%= photo.image_url(:original)%>">
+            <%= image_tag photo.image_url(:thumb) %>
+        </a>
+      <% end %>                    
+    </div>
+
+  <h3>Images (Multiple select)</h3>
+  <%= render partial: "photos/form", locals: {photo: Photo.new} %>
+
+  <div id="progress">
+      <div class="bar" style="width: 0%;"></div>
+  </div>
+
+  <%= link_to 'Edit', edit_album_path(@album) %> |
+  <%= link_to 'Back', albums_path %>
+  </div>
+</div>
